@@ -1,0 +1,122 @@
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+    id 'dagger.hilt.android.plugin'
+    id 'androidx.navigation.safeargs.kotlin'
+    id 'kotlin-kapt'
+
+}
+
+android {
+    compileSdkVersion (AppConfig.compileSdk)
+
+    defaultConfig {
+        applicationId "com.kluivert.knews"
+        minSdkVersion(AppConfig.minSdk)
+        targetSdkVersion(AppConfig.targetSdk)
+        versionCode = AppConfig.versionCode
+        versionName = AppConfig.versionName
+
+        testInstrumentationRunner = AppConfig.androidTestInstrumentation
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+
+
+    buildFeatures {
+        viewBinding true
+    }
+}
+
+dependencies {
+
+        //AndroidX
+        implementation(AndroidX.coreKtx)
+        implementation(AndroidX.navigationUiKtx)
+        implementation(AndroidX.navigationFragmentKtx)
+        implementation(AndroidX.activity)
+        implementation(AndroidX.multiDex)
+        implementation(AndroidX.lifeCycleCommon)
+        implementation(AndroidX.viewModel)
+
+        //Views
+
+        implementation(View.fragment)
+        implementation(View.materialComponent)
+        implementation(View.constraintLayout)
+        implementation(View.cardView)
+        implementation(View.recyclerView)
+        implementation(View.shimmerLayout)
+
+
+    //DataStore
+    implementation(DataStore.dataStoreJavaLite)
+    implementation(DataStore.protoDataStore)
+
+    //Paging
+    implementation(Paging.common)
+    implementation(Paging.runtime)
+
+    //Flow binding
+    implementation(FlowBinding.android)
+    implementation(FlowBinding.lifecycle)
+
+    //Network
+    implementation(Network.loggingInterceptor)
+    implementation(Network.moshi)
+    implementation(Network.okhttp)
+    implementation(Network.retrofit)
+    implementation(Network.retrofitMoshi)
+    kapt(AnnotationProcessor.moshi)
+
+
+    //External Libs
+    implementation(PrettyTime.prettyTime)
+    implementation(Glide.glide)
+    implementation(Intuit.sdp)
+    implementation(Intuit.ssp)
+    kapt(AnnotationProcessor.glide)
+
+    //DI
+
+    implementation(DI.daggerHiltAndroid)
+    implementation(DI.hiltViewModel)
+    implementation(DI.javaxInject)
+    androidTestImplementation(DI.hiltTesting)
+    kapt(AnnotationProcessor.daggerHiltAndroid)
+    kapt(AnnotationProcessor.jetpackHiltCompiler)
+
+    //Coroutines
+    implementation(Coroutines.core)
+    implementation(Coroutines.android)
+
+
+    //Room
+    implementation(Cache.room)
+    kapt(AnnotationProcessor.room)
+
+    //Test Libs
+    androidTestImplementation TestI.espresso
+    androidTestImplementation TestI.espressoContrib
+    androidTestImplementation TestI.fragmentTesting
+    androidTestImplementation TestI.rules
+    androidTestImplementation TestI.archCoreTest
+
+    androidTestImplementation TestI.runner
+    androidTestImplementation TestI.androidXTest
+
+
+
+}
