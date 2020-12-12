@@ -1,6 +1,6 @@
 package com.kluivert.newsfeed.di.remoteDataModule
 
-import com.kluivert.newsfeed.data.model.News
+
 import com.kluivert.newsfeed.data.network.api.NewsApi
 import com.kluivert.newsfeed.utils.Constants
 import dagger.Module

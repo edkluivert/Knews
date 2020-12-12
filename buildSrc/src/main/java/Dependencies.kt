@@ -77,6 +77,8 @@ object AndroidX  {
             "com.squareup.retrofit2:converter-moshi:${Version.retrofit}"
         const val moshi: String = "com.squareup.moshi:moshi-kotlin:${Version.moshi}"
 
+       const val googleGson = "com.google.code.gson:gson:${Version.google_gson_version}"
+        const val retrofitConverter = "com.squareup.retrofit2:converter-gson:${Version.retrofit_gson_converter_version}"
 
     }
 

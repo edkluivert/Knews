@@ -55,7 +55,7 @@ object Version {
     const val robolectric = "4.3.1"
     const val archCoreTest  = "1.1.1"
 
-
-
+    const val google_gson_version = "2.8.6"
+    const val retrofit_gson_converter_version = "2.9.0"
 
 }
