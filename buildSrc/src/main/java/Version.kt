@@ -43,6 +43,7 @@ object Version {
 
     const val room = "2.2.5"
 
+    const val  lifecycle_version = "2.2.0"
 
     const val junit = "4.13"
     const val runner = "1.2.0"

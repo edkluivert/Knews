@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/knews_navigation"
+    app:startDestination="@id/feeds">
+
+
+    <fragment
+        android:id="@+id/feeds"
+        android:name="com.kluivert.newsfeed.ui.presenters.FeedsFrag"
+        android:label="Feeds" />
+    <fragment
+        android:id="@+id/bookmarks"
+        android:name="com.kluivert.newsfeed.ui.presenters.BooksMark"
+        android:label="BooksMark" />
+    <fragment
+        android:id="@+id/search"
+        android:name="com.kluivert.newsfeed.ui.presenters.About"
+        android:label="Search" />
+</navigation>

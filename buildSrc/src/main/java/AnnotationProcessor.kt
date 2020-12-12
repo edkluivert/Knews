@@ -7,6 +7,8 @@ object AnnotationProcessor {
         "androidx.hilt:hilt-compiler:${Version.hiltViewModel}"
 
 
+    const val lifecycle_compiler = "androidx.lifecycle:lifecycle-compiler:${Version.lifecycle_version}"
+
     const val room: String = "androidx.room:room-compiler:${Version.room}"
 
     const val glide : String = "com.github.bumptech.glide:compiler:${Version.glideVersion}"

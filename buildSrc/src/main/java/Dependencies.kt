@@ -91,6 +91,14 @@ object AndroidX  {
             "com.google.dagger:hilt-android-testing:${Version.daggerHiltAndroid}"
     }
 
+     object LiveData{
+
+      const val lifecyleViewModel = "androidx.lifecycle:lifecycle-viewmodel-ktx:${Version.lifecycle_version}"
+      const val lifecycleRuntime = "androidx.lifecycle:lifecycle-runtime-ktx:${Version.lifecycle_version}"
+       const val lifecycleLiveData = "androidx.lifecycle:lifecycle-livedata-ktx:${Version.lifecycle_version}"
+        const val lifecycleCommon = "androidx.lifecycle:lifecycle-common-java8:${Version.lifecycle_version}"
+     }
+
     object Coroutines  {
 
 

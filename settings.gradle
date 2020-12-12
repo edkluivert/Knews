@@ -1,2 +1,3 @@
 rootProject.name = "Knews"
 include ':app'
+include ':NewsFeed'

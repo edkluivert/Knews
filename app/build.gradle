@@ -42,6 +42,7 @@ android {
 
 dependencies {
 
+         implementation(project(":NewsFeed"))
         //AndroidX
         implementation(AndroidX.coreKtx)
         implementation(AndroidX.navigationUiKtx)
@@ -49,45 +50,13 @@ dependencies {
         implementation(AndroidX.activity)
         implementation(AndroidX.multiDex)
         implementation(AndroidX.lifeCycleCommon)
-        implementation(AndroidX.viewModel)
+
 
         //Views
 
         implementation(View.fragment)
         implementation(View.materialComponent)
         implementation(View.constraintLayout)
-        implementation(View.cardView)
-        implementation(View.recyclerView)
-        implementation(View.shimmerLayout)
-
-
-    //DataStore
-    implementation(DataStore.dataStoreJavaLite)
-    implementation(DataStore.protoDataStore)
-
-    //Paging
-    implementation(Paging.common)
-    implementation(Paging.runtime)
-
-    //Flow binding
-    implementation(FlowBinding.android)
-    implementation(FlowBinding.lifecycle)
-
-    //Network
-    implementation(Network.loggingInterceptor)
-    implementation(Network.moshi)
-    implementation(Network.okhttp)
-    implementation(Network.retrofit)
-    implementation(Network.retrofitMoshi)
-    kapt(AnnotationProcessor.moshi)
-
-
-    //External Libs
-    implementation(PrettyTime.prettyTime)
-    implementation(Glide.glide)
-    implementation(Intuit.sdp)
-    implementation(Intuit.ssp)
-    kapt(AnnotationProcessor.glide)
 
     //DI
 
@@ -102,10 +71,6 @@ dependencies {
     implementation(Coroutines.core)
     implementation(Coroutines.android)
 
-
-    //Room
-    implementation(Cache.room)
-    kapt(AnnotationProcessor.room)
 
     //Test Libs
     androidTestImplementation TestI.espresso
