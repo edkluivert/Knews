@@ -29,7 +29,7 @@ fun Context.fromHtmlWithParams(@StringRes stringRes: Int, parameter : String? = 
     return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
         Html.fromHtml(stringText, Html.FROM_HTML_MODE_LEGACY)
     } else {
-        TODO("VERSION.SDK_INT < N")
+        TODO("Will fix it")
     }
 
 }
