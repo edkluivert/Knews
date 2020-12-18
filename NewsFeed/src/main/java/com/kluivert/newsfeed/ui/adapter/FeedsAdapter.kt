@@ -1,19 +1,22 @@
 package com.kluivert.newsfeed.ui.adapter
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
+import coil.load
 import com.kluivert.newsfeed.R
 import com.kluivert.newsfeed.data.model.Article
 import com.kluivert.newsfeed.data.model.News
 import com.kluivert.newsfeed.databinding.NewsItemBinding
 import com.kluivert.newsfeed.utils.KnewsDiffUtil
+import com.kluivert.newsfeed.utils.NewsUtils
 
 class FeedsAdapter(
 
-    val newslist: MutableList<Article>
+  private val newslist: MutableList<Article>
 
 ) : RecyclerView.Adapter<FeedsAdapter.FeedsAdapterViewHolder>(){
 
@@ -39,11 +42,22 @@ class FeedsAdapter(
         )
     }
 
+    @SuppressLint("SetTextI18n")
     override fun onBindViewHolder(holder: FeedsAdapterViewHolder, position: Int) {
 
-      with(holder){
 
+        val current = newslist[position]
+      holder.binding.apply {
+          tvAuthor.text = current.author
+          tvDesc.text = current.description
+          tvTitle.text = current.title
+         tvTime.text = "\u2022 ${NewsUtils.DateToTimeFormat(current.publishedAt)}"
+         tvPublishedAt.text = NewsUtils.DateFormat(current.publishedAt)
+          tvSource.text = current.source.name
 
+            img.load(current.urlToImage){
+                crossfade(true)
+            }
       }
 
     }

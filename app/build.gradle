@@ -60,9 +60,9 @@ dependencies {
 
     //DI
 
-    implementation(DI.daggerHiltAndroid)
-    implementation(DI.hiltViewModel)
-    implementation(DI.javaxInject)
+   api(DI.daggerHiltAndroid)
+   api(DI.hiltViewModel)
+  api(DI.javaxInject)
     androidTestImplementation(DI.hiltTesting)
     kapt(AnnotationProcessor.daggerHiltAndroid)
     kapt(AnnotationProcessor.jetpackHiltCompiler)

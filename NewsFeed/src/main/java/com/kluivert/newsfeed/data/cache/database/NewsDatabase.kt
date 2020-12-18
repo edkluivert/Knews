@@ -28,7 +28,7 @@ abstract class NewsDatabase : RoomDatabase(){
                     context.applicationContext,
                     NewsDatabase::class.java,
                     "bookmarks.db"
-                ).build().also {
+                ).fallbackToDestructiveMigration().build().also {
                     INSTANCE = it
                 }
             }

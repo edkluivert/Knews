@@ -15,7 +15,7 @@ interface NewsApi {
         @Query("country") countryCode :String = "ng",
         @Query("page") pageNumber :Int = 1,
         @Query("apiKey") apiKey : String = BuildConfig.API_KEY
-    ):List<News>
+    ):News
 
     @GET("v2/everything")
     suspend fun searchNews(
@@ -23,6 +23,6 @@ interface NewsApi {
       @Query("page") pageNumber :Int = 1,
       @Query("apiKey") apiKey : String = BuildConfig.API_KEY
 
-    ):List<News>
+    ):News
 
 }

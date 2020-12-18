@@ -11,8 +11,9 @@ import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Converter
 import retrofit2.Retrofit
-import retrofit2.converter.moshi.MoshiConverterFactory
+import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
+import javax.inject.Singleton
 
 
 @Module
@@ -46,7 +47,7 @@ object NetworkModule {
 
     @Provides
     fun providesConverterFactory(): Converter.Factory{
-        return MoshiConverterFactory.create()
+        return GsonConverterFactory.create()
     }
 
 

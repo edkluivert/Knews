@@ -11,6 +11,7 @@ object Version {
     const val glideVersion  = "4.11.0"
     const val intuitVersion = "1.0.6"
 
+    const val coil = "1.1.0"
 
     const val protoDataStore = "1.0.0-alpha01"
     const val dataStoreJavaLite  = "3.10.0"

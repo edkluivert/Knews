@@ -2,24 +2,20 @@ package com.kluivert.newsfeed.data.repository.remote
 
 import com.kluivert.newsfeed.data.model.News
 import com.kluivert.newsfeed.data.network.api.NewsApi
+import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 
 
-class DataRepository
-
-@Inject
-constructor(
-    private val newsApi: NewsApi
-)
+interface DataRepository
 {
 
-    suspend fun getNews(countryCode : String , pageNum : Int):List<News>{
-        return newsApi.getNews(countryCode,pageNum)
-    }
+    fun getNews(countryCode : String,
+                pageNum : Int):
+                Flow<News>
 
-    suspend fun searchNews(countryCode : String , pageNum : Int):List<News>{
-        return newsApi.searchNews(countryCode,pageNum)
-    }
+    fun searchNews(countryCode : String ,
+                    pageNum : Int):
+                    Flow<News>
 
 
 }

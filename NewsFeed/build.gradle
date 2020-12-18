@@ -77,10 +77,10 @@ dependencies {
     implementation(FlowBinding.lifecycle)
 
     //Network
-    implementation(Network.loggingInterceptor)
+    api(Network.loggingInterceptor)
     implementation(Network.moshi)
     implementation(Network.okhttp)
-    implementation(Network.retrofit)
+    api(Network.retrofit)
     implementation(Network.retrofitMoshi)
     implementation(Network.googleGson)
     implementation(Network.retrofitConverter)
@@ -93,6 +93,7 @@ dependencies {
     implementation(Glide.glide)
     implementation(Intuit.sdp)
     implementation(Intuit.ssp)
+    implementation(Coil.coil)
     kapt(AnnotationProcessor.glide)
 
     //DI

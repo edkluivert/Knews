@@ -34,6 +34,10 @@ object AndroidX  {
 
     }
 
+    object Coil{
+        const val coil : String = "io.coil-kt:coil:${Version.coil}"
+    }
+
     object Paging{
 
         const val runtime : String =  "androidx.paging:paging-runtime:${Version.pagingVersion}"

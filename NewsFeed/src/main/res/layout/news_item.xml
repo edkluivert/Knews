@@ -54,8 +54,8 @@
                 android:layout_marginRight="160dp"
                 android:text="Author"
                 android:gravity="bottom"
-                android:layout_alignLeft="@+id/title"
-                android:layout_alignStart="@+id/title"
+                android:layout_alignLeft="@+id/tvTitle"
+                android:layout_alignStart="@+id/tvTitle"
                 android:layout_alignRight="@id/layoutDate"
                 android:layout_alignTop="@+id/layoutDate"
                 android:layout_alignEnd="@id/layoutDate"/>
@@ -102,14 +102,14 @@
                 android:textSize="17sp"
                 android:layout_marginTop="10dp"
                 android:layout_below="@id/img"
-                android:id="@+id/title" />
+                android:id="@+id/tvTitle" />
 
 
             <TextView
                 android:id="@+id/tvDesc"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/title"
+                android:layout_below="@id/tvTitle"
                 android:layout_marginLeft="16dp"
                 android:layout_marginRight="16dp"
                 android:layout_marginTop="5dp"

@@ -11,8 +11,9 @@ import dagger.hilt.android.components.ApplicationComponent
 import dagger.hilt.android.qualifiers.ApplicationContext
 
 
-@Module
+
 @InstallIn(ApplicationComponent::class)
+@Module
 object cacheModule {
 
 

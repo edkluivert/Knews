@@ -11,7 +11,7 @@ interface NewsDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun addBookMarks(article: Article)
 
-    @Query("SELECT * FROM bookmarks")
+    @Query("SELECT * FROM bookmarks ORDER BY id DESC")
     fun getBookmarks() : LiveData<List<Article>>
 
     @Delete()
