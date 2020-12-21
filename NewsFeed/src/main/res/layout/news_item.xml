@@ -6,6 +6,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <androidx.cardview.widget.CardView
+        android:id="@+id/newsCard"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="11dp"
@@ -19,6 +20,19 @@
             android:background="?android:attr/selectableItemBackground"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/imgBookmark"
+                android:layout_width="@dimen/_30sdp"
+                android:layout_height="@dimen/_30sdp"
+                android:src="@drawable/ic_bookmark"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="@dimen/_5sdp"
+                android:layout_marginTop="@dimen/_5sdp"
+                app:tint="@color/design_default_color_primary"
+                android:elevation="@dimen/_45sdp"
+                android:layout_marginStart="@dimen/_150sdp"
+                />
 
             <ImageView
                 android:id="@+id/img"
@@ -147,6 +161,8 @@
                 android:singleLine="true"
                 android:ellipsize="end"
                 android:text="Time" />
+
+
 
 
         </RelativeLayout>

@@ -22,36 +22,19 @@ constructor(
     private val dataRepository: DataRepository
 )  : ViewModel(){
 
-    //private val _dataState = MutableStateFlow<DataState>(DataState.Loading)
 
     private var newsList : ArrayList<Article> = ArrayList()
 
-    private val _transitionStatus = MutableStateFlow<TransitionStatus>(TransitionStatus.TRANSITION_INIT)
-    val transitionStatus : StateFlow<TransitionStatus> = _transitionStatus
+    //private val _transitionStatus = MutableStateFlow<TransitionStatus>(TransitionStatus.TRANSITION_INIT)
+   // val transitionStatus : StateFlow<TransitionStatus> = _transitionStatus
 
     private val _newsResult = MutableLiveData<Resource<ArrayList<Article>>>()
     val newsResult : LiveData<Resource<ArrayList<Article>>> = _newsResult
 
-    fun setTransitionStatus(transitionStatus: TransitionStatus) {
-        _transitionStatus.value = transitionStatus
-    }
+   // fun setTransitionStatus(transitionStatus: TransitionStatus) {
+     //   _transitionStatus.value = transitionStatus
+   // }
 
-   // val dataState : StateFlow<DataState> = _dataState
-
-   /* fun getNews(countryCode : String, pageNum : Int){
-        viewModelScope.launch(Dispatchers.IO) {
-           // _dataState.value = DataState.Loading
-
-            if(dataRepositoryImpl.getNews(countryCode,pageNum).isNullOrEmpty()){
-                //_dataState.value = DataState.Success()
-                //dataRepositoryImpl.getNews("ng",Integer.parseInt("1"))
-            }else{
-                _dataState.value = DataState.Error("Error occured")
-            }
-
-
-        }
-    }*/
 
     fun getNews(countryCode : String, pageNUm : Int){
         viewModelScope.launch(Dispatchers.IO) {

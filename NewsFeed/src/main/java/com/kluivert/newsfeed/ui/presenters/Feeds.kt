@@ -2,6 +2,8 @@ package com.kluivert.newsfeed.ui.presenters
 
 import android.content.ContentValues.TAG
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -14,21 +16,20 @@ import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.inspirecoding.omdb_mvvm_kotlinflow_daggerhilt_retrofit.utils.showToast
-import com.kluivert.newsfeed.R
 import com.kluivert.newsfeed.data.model.Article
 import com.kluivert.newsfeed.databinding.FragmentFeedsBinding
 import com.kluivert.newsfeed.ui.adapter.FeedsAdapter
-import com.kluivert.newsfeed.ui.viewmodel.remoteViewModel.DataState
 import com.kluivert.newsfeed.ui.viewmodel.remoteViewModel.RemoteViewModel
-import com.kluivert.newsfeed.utils.Status
+import com.kluivert.newsfeed.data.network.state.Status
+import com.kluivert.newsfeed.ui.viewmodel.localViewModel.LocalViewModel
+import com.kluivert.newsfeed.utils.KnewsListener
 import com.kluivert.newsfeed.utils.gone
 import com.kluivert.newsfeed.utils.visible
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.flow.collect
 
 
 @AndroidEntryPoint
-class FeedsFrag : Fragment() {
+class FeedsFrag : Fragment(), KnewsListener{
 
     private var  _binding  : FragmentFeedsBinding? = null
 
@@ -36,6 +37,7 @@ class FeedsFrag : Fragment() {
 
     var newslist: MutableList<Article> = mutableListOf()
     private val feedsViewModel : RemoteViewModel by viewModels()
+    private val bookmarksViewModel : LocalViewModel by viewModels()
     lateinit var adapter : FeedsAdapter
 
     override fun onCreateView(
@@ -104,18 +106,18 @@ class FeedsFrag : Fragment() {
         if (found) {
 
             binding.feedsRecycler.visible()
-            // binding.tvNoMovieFound.gone()
+             binding.NewsProgBar.gone()
 
         } else {
+             binding.errorLayout.visible()
+             binding.feedsRecycler.gone()
 
-            binding.feedsRecycler.gone()
-            // binding.tvNoMovieFound.visible()
 
         }
     }
 
     fun setupAdapter(){
-        adapter = FeedsAdapter(newslist)
+        adapter = FeedsAdapter(newslist,this)
         binding.feedsRecycler.adapter = adapter
         binding.feedsRecycler.addItemDecoration(
             DividerItemDecoration(
@@ -123,6 +125,21 @@ class FeedsFrag : Fragment() {
                 LinearLayoutManager.VERTICAL
             )
         )
+    }
+
+    override suspend fun likelistener(article: Article, position: Int) {
+            bookmarksViewModel.addsBookmarks(article)
+        Handler(Looper.getMainLooper()).post {
+            Toast.makeText(requireContext(), "Added to Bookmarks", Toast.LENGTH_SHORT).show()
+        }
+    }
+
+    override suspend fun unlikeListener(article: Article, position: Int) {
+        TODO("Not yet implemented")
+    }
+
+    override suspend fun shareLIstener(article: Article, position: Int) {
+        TODO("Not yet implemented")
     }
 
 }

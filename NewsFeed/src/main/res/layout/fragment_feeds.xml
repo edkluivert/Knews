@@ -6,6 +6,56 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ui.presenters.FeedsFrag">
 
+    <ProgressBar
+        android:id="@+id/NewsProgBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:indeterminate="true"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        />
+
+    <RelativeLayout
+        android:id="@+id/errorLayout"
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:layout_width="@dimen/_150sdp"
+            android:layout_height="@dimen/_150sdp"
+            android:src="@drawable/error"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/_100sdp"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_320sdp"
+            android:layout_centerHorizontal="true"
+            android:text="error occured"
+            android:textSize="@dimen/_15ssp"
+            />
+
+        <Button
+            android:layout_width="@dimen/_130sdp"
+            android:layout_height="@dimen/_45sdp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/_370sdp"
+            android:background="@color/design_default_color_primary"
+            android:text="Retry"
+            android:textColor="#fff"
+            />
+
+
+
+    </RelativeLayout>
+
+
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/feedsRecycler"
         android:padding="@dimen/_5sdp"

@@ -1,6 +1,7 @@
 package com.kluivert.newsfeed.ui.adapter
 
 import android.annotation.SuppressLint
+import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -12,11 +13,15 @@ import com.kluivert.newsfeed.data.model.Article
 import com.kluivert.newsfeed.data.model.News
 import com.kluivert.newsfeed.databinding.NewsItemBinding
 import com.kluivert.newsfeed.utils.KnewsDiffUtil
+import com.kluivert.newsfeed.utils.KnewsListener
 import com.kluivert.newsfeed.utils.NewsUtils
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 
 class FeedsAdapter(
 
-  private val newslist: MutableList<Article>
+  private val newslist: MutableList<Article>,
+   var listener : KnewsListener
 
 ) : RecyclerView.Adapter<FeedsAdapter.FeedsAdapterViewHolder>(){
 
@@ -26,8 +31,8 @@ class FeedsAdapter(
         val diffCallback = KnewsDiffUtil(newslist, newList)
         val diffResult = DiffUtil.calculateDiff(diffCallback)
 
-       newslist.clear()
-      newslist.addAll(newList)
+      // newslist.clear()
+        newslist.addAll(newList)
 
         diffResult.dispatchUpdatesTo(this)
     }
@@ -57,7 +62,17 @@ class FeedsAdapter(
 
             img.load(current.urlToImage){
                 crossfade(true)
+                prograssLoadPhoto.visibility = View.GONE
             }
+           imgBookmark.setOnClickListener{
+               GlobalScope.launch {
+                   imgBookmark.setColorFilter(Color.GREEN)
+                   listener.likelistener(current,position)
+               }
+           }
+
+
+
       }
 
     }

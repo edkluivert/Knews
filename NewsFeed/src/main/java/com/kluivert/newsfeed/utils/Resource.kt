@@ -1,6 +1,6 @@
 package com.kluivert.newsfeed.utils
 
-import com.kluivert.newsfeed.utils.Status
+import com.kluivert.newsfeed.data.network.state.Status
 
 sealed class Resource <out T> (val status : Status, val _data : T?, val message: String?) {
 

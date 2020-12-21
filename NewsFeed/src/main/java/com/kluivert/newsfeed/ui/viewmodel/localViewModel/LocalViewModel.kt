@@ -9,8 +9,19 @@ import kotlinx.coroutines.launch
 
 class LocalViewModel
 @ViewModelInject
-constructor(private val localRepository: LocalRepository) : ViewModel(){
+constructor(private val localRepository: LocalRepository) : ViewModel(), LifecycleObserver{
 
+
+    private val insertedId = MutableLiveData<Long>()
+    var bookmarksFinalList: LiveData<List<Article>> =
+            MutableLiveData<List<Article>>()
+
+    @OnLifecycleEvent(Lifecycle.Event.ON_CREATE)
+    fun getBookmarks() {
+        viewModelScope.launch {
+           bookmarksFinalList = localRepository.getBookmarks()
+        }
+    }
 
     suspend fun addsBookmarks(article: Article){
         viewModelScope.launch(Dispatchers.IO) {
